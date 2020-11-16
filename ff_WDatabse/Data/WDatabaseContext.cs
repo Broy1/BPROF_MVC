@@ -1,10 +1,51 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Text;
+using Models;
+
 
 namespace Data
 {
-    class WDatabaseContext
+    public class WDatabaseContext : DbContext
     {
+
+        public WDatabaseContext(DbContextOptions<WDatabaseContext> opt) : base(opt)
+        {
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelbuilder)
+        {
+            base.OnModelCreating(modelbuilder);
+
+            modelbuilder.Entity<Monster>(entity =>
+            {
+                entity
+                .HasOne(Monster => Monster.Killedby)
+                .WithMany(Witcher => Witcher.Monsters_slain)
+                .HasForeignKey(Monster => Monster.WitcherID);
+            });
+            modelbuilder.Entity<Witcher>(entity =>
+            {
+                entity
+                .HasOne(Witcher => Witcher.Friend)
+                .WithMany(Human => Human.Witchers)
+                .HasForeignKey(Witcher => Witcher.FriendID);
+            });
+        }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            if (!optionsBuilder.IsConfigured)
+            {
+                optionsBuilder.
+                    UseLazyLoadingProxies().
+                    UseSqlServer(@"data source=(LocalDB)\MSSQLLocalDB;attachdbfilename=|DataDirectory|\WDb.mdf;integrated security=True;MultipleActiveResultSets=True");
+            }
+        }
+
+        public DbSet<Human> Humen { get; set; }
+        public DbSet<Witcher> Witchers { get; set; }
+        public DbSet<Monster> Monsters { get; set; }
     }
 }

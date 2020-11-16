@@ -20,10 +20,7 @@ namespace ff_WDatabse
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc(opt => opt.EnableEndpointRouting = false);
-            services.AddDbContext<WDatabaseContext>(opt =>
-            {
-                opt.UseSqlServer(@"Server = (localdb)\mssqllocaldb; Database = WDb; Trusted_Connection = True; MultipleActiveResultSets = True");
-            });
+           
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
