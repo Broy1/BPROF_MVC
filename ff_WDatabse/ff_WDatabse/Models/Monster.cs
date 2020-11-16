@@ -11,6 +11,7 @@ namespace ff_WDatabse.Models
         [Key]
         [StringLength(100)]
         public string Name { get; set; }
+
         public virtual Witcher Killedby { get; set; }
 
         [Range(0, 10)]
