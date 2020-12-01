@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30517.126
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ff_WDatabse", "ff_WDatabse\ff_WDatabse.csproj", "{36DC8E1E-B216-40D2-A6D9-4A0C4E59A881}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ff_WDatabse", "ff_WDatabse\ff_WDatabse.csproj", "{36DC8E1E-B216-40D2-A6D9-4A0C4E59A881}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Data\Data.csproj", "{1E410E53-E27E-4329-B028-0A867B29EF5C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data", "Data\Data.csproj", "{1E410E53-E27E-4329-B028-0A867B29EF5C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "Models\Models.csproj", "{12DBF86D-D41C-4D2D-AADF-450D9D6C0832}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Models", "Models\Models.csproj", "{12DBF86D-D41C-4D2D-AADF-450D9D6C0832}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repository", "Repository\Repository.csproj", "{4AAC1090-CEB1-4D27-AD3A-E0B557CE1B68}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{12DBF86D-D41C-4D2D-AADF-450D9D6C0832}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{12DBF86D-D41C-4D2D-AADF-450D9D6C0832}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{12DBF86D-D41C-4D2D-AADF-450D9D6C0832}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4AAC1090-CEB1-4D27-AD3A-E0B557CE1B68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4AAC1090-CEB1-4D27-AD3A-E0B557CE1B68}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4AAC1090-CEB1-4D27-AD3A-E0B557CE1B68}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4AAC1090-CEB1-4D27-AD3A-E0B557CE1B68}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

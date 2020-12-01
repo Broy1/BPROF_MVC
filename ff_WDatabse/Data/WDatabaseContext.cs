@@ -29,7 +29,7 @@ namespace Data
             {
                 entity
                 .HasOne(Witcher => Witcher.Friend)
-                .WithMany(Human => Human.Witchers)
+                .WithMany(Human => Human.Friends)
                 .HasForeignKey(Witcher => Witcher.FriendID);
             });
         }

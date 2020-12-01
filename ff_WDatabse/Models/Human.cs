@@ -16,7 +16,7 @@ namespace Models
         public string Nationality { get; set; }
 
         [NotMapped]
-        public virtual ICollection<Witcher> Witchers { get; set; }
+        public virtual ICollection<Witcher> Friends { get; set; }
 
         [StringLength(100)]
         public string Job { get; set; }

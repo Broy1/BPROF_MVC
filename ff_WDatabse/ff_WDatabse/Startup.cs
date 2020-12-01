@@ -30,8 +30,8 @@ namespace ff_WDatabse
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseMvcWithDefaultRoute();
             app.UseRouting();
+            app.UseMvcWithDefaultRoute();
 
         }
     }
