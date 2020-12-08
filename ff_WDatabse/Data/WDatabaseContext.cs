@@ -32,6 +32,12 @@ namespace Data
                 .WithMany(Human => Human.Friends)
                 .HasForeignKey(Witcher => Witcher.FriendID);
             });
+            modelbuilder.Entity<Human>(entity =>
+            {
+                entity
+                .HasMany(Human => Human.Friends)
+                .WithOne(Witcher => Witcher.Friend);
+            });
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

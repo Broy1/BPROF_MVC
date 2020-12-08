@@ -1,8 +1,22 @@
 ﻿using System;
+using System.Linq;
 
 namespace Repository
 {
-    public class Class1
+    public interface IRepository<T> where T : new()
     {
+        void Add(T item);
+
+        void Delete(T item);
+
+        void Delete(string uid);
+
+        T Read(string uid);
+
+        IQueryable<T> GetAll();
+
+        void Update(string oldid, T newitem);
+
+        void Save();
     }
 }
