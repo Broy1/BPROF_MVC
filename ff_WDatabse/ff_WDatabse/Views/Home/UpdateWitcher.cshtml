@@ -1,0 +1,29 @@
+﻿@model Models.Witcher
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Update Witcher</title>
+</head>
+<body>
+    <form action="/Home/UpdateWitcher" method="post">
+        <input type="hidden" name="name" value="@Model.Name" />
+        <input type="hidden" name="Age" value="@Model.Age" />
+        <input type="hidden" name="WitcherID" value="@Model.WitcherID" />
+
+        Avarage Pay: <input type="number" name="AvaragePay" value="@Model.AvaragePay" /> <br>
+        <label for="School">School:</label>
+        <select id="School" name="School">
+            <option value="School of the Wolf">School of the Wolf</option>
+            <option value="School of the Cat">School of the Cat</option>
+            <option value="School of the Bear">School of the Bear</option>
+            <option value="School of the Griffin">School of the Griffin</option>
+            <option value="School of the Viper">School of the Viper</option>
+        </select><br>
+        <input type="submit" name="" value="Update" /> <br>
+    </form>
+    <input type="button" class="" onclick="location.href='/Home/WitcherPage';" value="Back to Witcher Page" />
+    <input type="button" class="" onclick="location.href='/Home/Index';" value="Back to Main Page" />
+</body>
+</html>

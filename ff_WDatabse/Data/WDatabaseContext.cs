@@ -14,6 +14,11 @@ namespace Data
         {
         }
 
+        public WDatabaseContext()
+        {
+            this.Database.EnsureCreated();
+        }
+
         protected override void OnModelCreating(ModelBuilder modelbuilder)
         {
             base.OnModelCreating(modelbuilder);
@@ -23,20 +28,23 @@ namespace Data
                 entity
                 .HasOne(Monster => Monster.Killedby)
                 .WithMany(Witcher => Witcher.Monsters_slain)
-                .HasForeignKey(Monster => Monster.WitcherID);
+                .HasForeignKey(Monster => Monster.WitcherID)
+                .OnDelete(DeleteBehavior.Cascade);
             });
             modelbuilder.Entity<Witcher>(entity =>
             {
                 entity
                 .HasOne(Witcher => Witcher.Friend)
                 .WithMany(Human => Human.Friends)
-                .HasForeignKey(Witcher => Witcher.FriendID);
+                .HasForeignKey(Witcher => Witcher.FriendID)
+                .OnDelete(DeleteBehavior.Cascade);
             });
             modelbuilder.Entity<Human>(entity =>
             {
                 entity
                 .HasMany(Human => Human.Friends)
-                .WithOne(Witcher => Witcher.Friend);
+                .WithOne(Witcher => Witcher.Friend)
+                .OnDelete(DeleteBehavior.Cascade);
             });
         }
 

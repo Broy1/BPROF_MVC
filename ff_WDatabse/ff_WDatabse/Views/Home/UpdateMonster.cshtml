@@ -1,0 +1,23 @@
+﻿@model Models.Monster
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Update Monster</title>
+</head>
+<body>
+    <form action="/Home/UpdateMonster" method="post">
+        <input type="hidden" name="MonsterID" value="@Model.MonsterID" />
+        <input type="hidden" name="Name" value="@Model.Name" />
+        <input type="hidden" name="Race" value="@Model.Race" />
+
+        Threat: <input type="number" name="Threat" value="@Model.Threat" /> <br>
+        Bounty: <input type="number" name="Bounty" value="@Model.Bounty" /> <br>
+        <input type="submit" name="" value="Update" /> <br>
+    </form>
+    <input type="button" class="" onclick="location.href='/Home/MonsterPage';" value="Back to Monster Page" />
+    <input type="button" class="" onclick="location.href='/Home/Index';" value="Back to Main Page" />
+
+</body>
+</html>

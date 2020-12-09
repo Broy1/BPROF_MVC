@@ -52,19 +52,22 @@ namespace Logic
             this.HumanRepo.Update(oldid,newitem);
         }
         
-        public void Init()
-        {
-            HumanRepo.Add(new Human() { Name = "Dandelion", Friends = null, Nationality = "Redenia", Job = "Bard", Wage = 100 });
-            HumanRepo.Add(new Human() { Name = "Zoltan Chivay", Friends = null, Nationality = "Mahakam", Job = "Officer", Wage = 200 });
-            HumanRepo.Add(new Human() { Name = "Emhyr var Emreis", Friends = null, Nationality = "Nilfgaard", Job = "Emperor", Wage = 8500 });
-            HumanRepo.Add(new Human() { Name = "Sigismund Dijkstra", Friends = null, Nationality = "Redenia", Job = "Spy", Wage = 500 });
-            HumanRepo.Add(new Human() { Name = "Radovid V", Friends = null, Nationality = "Redenia", Job = "Emperor", Wage = 10000 });
-            HumanRepo.Add(new Human() { Name = "Svorlag Barber", Friends = null, Nationality = "Skellige", Job = "Armorer", Wage = 10 });
-            HumanRepo.Add(new Human() { Name = "Anselm", Friends = null, Nationality = "Redenia", Job = "Merchant", Wage = 25 });
-            HumanRepo.Add(new Human() { Name = "Midcopse Armorer", Friends = null, Nationality = "Temeria", Job = "Armorer", Wage = 30 });
+        //non crud methods
 
-            HumanRepo.Save();
-        }
+
+        //public void Init()
+        //{
+        //    HumanRepo.Add(new Human() { Name = "Dandelion", Friends = null, Nationality = "Redenia", Job = "Bard", Wage = 100 });
+        //    HumanRepo.Add(new Human() { Name = "Zoltan Chivay", Friends = null, Nationality = "Mahakam", Job = "Officer", Wage = 200 });
+        //    HumanRepo.Add(new Human() { Name = "Emhyr var Emreis", Friends = null, Nationality = "Nilfgaard", Job = "Emperor", Wage = 8500 });
+        //    HumanRepo.Add(new Human() { Name = "Sigismund Dijkstra", Friends = null, Nationality = "Redenia", Job = "Spy", Wage = 500 });
+        //    HumanRepo.Add(new Human() { Name = "Radovid V", Friends = null, Nationality = "Redenia", Job = "Emperor", Wage = 10000 });
+        //    HumanRepo.Add(new Human() { Name = "Svorlag Barber", Friends = null, Nationality = "Skellige", Job = "Armorer", Wage = 10 });
+        //    HumanRepo.Add(new Human() { Name = "Anselm", Friends = null, Nationality = "Redenia", Job = "Merchant", Wage = 25 });
+        //    HumanRepo.Add(new Human() { Name = "Midcopse Armorer", Friends = null, Nationality = "Temeria", Job = "Armorer", Wage = 30 });
+
+        //    HumanRepo.Save();
+        //}
         
     }
 }

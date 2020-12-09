@@ -9,11 +9,8 @@ namespace Repository
 {
     public class WitcherRepo : IRepository<Witcher>
     {
-        WDatabaseContext context;
-        public WitcherRepo(WDatabaseContext context)
-        {
-            this.context = context;
-        }
+        WDatabaseContext context = new WDatabaseContext();
+        
         public void Add(Witcher item)
         {
             this.context.Witchers.Add(item);

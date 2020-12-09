@@ -12,6 +12,7 @@ namespace Logic
         public WitcherLogic(IRepository<Witcher> WitcherRepo)
         {
             this.WitcherRepo = WitcherRepo;
+            
         }
 
         public void Add(Witcher item)

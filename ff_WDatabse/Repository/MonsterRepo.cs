@@ -9,11 +9,8 @@ namespace Repository
 {
     public class MonsterRepo : IRepository<Monster>
     {
-        WDatabaseContext context;
-        public MonsterRepo(WDatabaseContext context)
-        {
-            this.context = context;
-        }
+        WDatabaseContext context = new WDatabaseContext();
+        
         public void Add(Monster item)
         {
             this.context.Monsters.Add(item);
@@ -23,7 +20,6 @@ namespace Repository
         public IQueryable<Monster> GetAll()
         {
             return this.context.Monsters;
-            this.context.SaveChanges();
         }
 
         public void Delete(Monster item)

@@ -8,7 +8,9 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-
+using Models;
+using Repository;
+using Logic;
 
 namespace ff_WDatabse
 {
@@ -18,8 +20,13 @@ namespace ff_WDatabse
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc(opt => opt.EnableEndpointRouting = false);
-           
+            services.AddMvc(opt => opt.EnableEndpointRouting = false).AddRazorRuntimeCompilation(); ;
+            services.AddTransient<WitcherLogic, WitcherLogic>();
+            services.AddTransient<HumanLogic, HumanLogic>();
+            services.AddTransient<MonsterLogic, MonsterLogic>();
+            services.AddTransient<IRepository<Witcher>, WitcherRepo>();
+            services.AddTransient<IRepository<Human>, HumanRepo>();
+            services.AddTransient<IRepository<Monster>, MonsterRepo>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -32,7 +39,7 @@ namespace ff_WDatabse
 
             app.UseRouting();
             app.UseMvcWithDefaultRoute();
-
+            app.UseStaticFiles();
         }
     }
 }

@@ -9,11 +9,8 @@ namespace Repository
 {
     public class HumanRepo : IRepository<Human>
     {
-        WDatabaseContext context;
-        public HumanRepo(WDatabaseContext context)
-        {
-            this.context = context;
-        }
+        WDatabaseContext context = new WDatabaseContext();
+        
         public void Add(Human item)
         {
             this.context.Humen.Add(item);
