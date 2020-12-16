@@ -25,33 +25,45 @@
                 <th>
                     Friend's Name
                 </th>
+                <th>
+                    Monsters Slain
+                </th>
                 <th></th>
             </tr>
         </thead>
         <tbody>
             @foreach (var item in Model)
             {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Name)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Age)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.School)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.AvaragePay)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Friend.Name)
-                    </td>
-                    <td>
-                        <input type="button" class="" onclick="location.href = '/Home/UpdateWitcher?id=@item.WitcherID';" value="Update Witcher" />
-                        <input type="button" class="" onclick="location.href = '/Home/DeleteWitcher?id=@item.WitcherID';" value="Delete Witcher" />
-                    </td>
-                </tr>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Age)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.School)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AvaragePay)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Friend.Name)
+                </td>
+                <td>
+                    @foreach (var szorny in item.Monsters_slain)
+                    {
+                        @szorny.Name;
+                        <br>
+                    }
+                </td>
+                <td>
+                    <input type="button" class="" onclick="location.href = '/Home/UpdateWitcher?id=@item.WitcherID';" value="Update Witcher" />
+                    <input type="button" class="" onclick="location.href = '/Home/DeleteWitcher?id=@item.WitcherID';" value="Delete Witcher" />
+                    <input type="button" class="" onclick="location.href = '/Home/AddNewFriend?id=@item.WitcherID';" value="Add New Friend" />
+                    <input type="button" class="" onclick="location.href = '/Home/MonsterSlain?id=@item.WitcherID';" value="Add Slain Monster" />
+                </td>
+            </tr>
             }
         </tbody>
     </table>

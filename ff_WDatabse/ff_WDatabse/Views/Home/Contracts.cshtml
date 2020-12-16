@@ -5,7 +5,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Listing Monsters</title>
+    <title>Active Contracts </title>
 </head>
 <body>
     <table class="table">
@@ -23,13 +23,12 @@
                 <th>
                     @Html.DisplayNameFor(model => model.Threat)
                 </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Killedby)
-                </th>
             </tr>
         </thead>
         <tbody>
             @foreach (var item in Model)
+            {
+            @if (item.Killedby == null)
             {
             <tr>
                 <td>
@@ -44,14 +43,8 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Threat)
                 </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Killedby.Name)
-                </td>
-                <td>
-                    <input type="button" class="" onclick="location.href = '/Home/UpdateMonster?id=@item.MonsterID';" value="Update Monster" />
-                    <input type="button" class="" onclick="location.href = '/Home/DeleteMonster?id=@item.MonsterID';" value="Delete Monster" />
-                </td>
             </tr>
+            }
             }
         </tbody>
     </table>

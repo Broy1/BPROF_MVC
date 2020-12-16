@@ -1,0 +1,21 @@
+﻿@model string
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Add New Monster</title>
+</head>
+<body>
+    <form action="/Home/MonsterSlain" method="post">
+        <input type="hidden" name="WitcherID" value="@Model" />
+        Name: <input type="text" name="Name" value="" /> <br>
+        Bounty: <input type="number" name="Bounty" value="" /> <br>
+        Race: <input type="text" name="Race" value="" /> <br>
+        Threat: <input type="number" name="Threat" value="" /> <br>
+        <input type="submit" name="" value="Add" /> <br>
+    </form>
+    <input type="button" class="" onclick="location.href='/Home/WitcherPage';" value="Back to Witcher Page" />
+
+</body>
+</html>
