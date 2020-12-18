@@ -1,9 +1,9 @@
 ﻿@model Models.StatModel
 
-<h2>Witcher who gets paid the most(avarage): @Model.AvgHuntedBounty</h2>
+<h2>Witcher who gets paid the most(avarage): @Model.AvgHuntedBounty</h2> @*a levadászott szörnyek alapján a legnagyobb átlag bountyval rendelkező witcher*@
 
-<h2>Witcher school with the most threat points: @Model.SchoolStats</h2>
+<h2>Witcher school with the most threat points: @Model.SchoolStats</h2> @*az az iskola ahol a levadászott szörnyek threat pontjai összesen a legmagasabb*@
 
-<h2>How many witchers has a redenian friend: @Model.HasRedenianFriend</h2>
+<h2>Witchers with Redenian connection: @Model.HasRedenianFriend</h2> @*a redenia-i számrazású baráttal rendelkező witcherek száma*@
 
 <input type="button" class="myButton" onclick="location.href='/Home/Index';" value="Back to Main Page" />
