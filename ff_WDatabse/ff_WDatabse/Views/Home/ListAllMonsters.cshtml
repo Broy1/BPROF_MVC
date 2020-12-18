@@ -1,51 +1,53 @@
 ﻿@model IEnumerable<Models.Monster>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Bounty)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Race)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Threat)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Killedby)
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
+<div class=" table2">
+    <table class="table">
+        <thead>
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Bounty)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Race)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Threat)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Killedby.Name)
-                </td>
-                <td>
-                    <input type="button" class="myButton" onclick="location.href = '/Home/UpdateMonster?id=@item.MonsterID';" value="Update Monster" />
-                    <input type="button" class="myButton" onclick="location.href = '/Home/DeleteMonster?id=@item.MonsterID';" value="Delete Monster" />
-                </td>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Bounty)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Race)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Threat)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Killedby)
+                </th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Bounty)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Race)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Threat)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Killedby.Name)
+                    </td>
+                    <td>
+                        <input type="button" class="myButton" onclick="location.href = '/Home/UpdateMonster?id=@item.MonsterID';" value="Update Monster" />
+                        <input type="button" class="myButton" onclick="location.href = '/Home/DeleteMonster?id=@item.MonsterID';" value="Delete Monster" />
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    </div>
 <input type="button" class="myButton" onclick="location.href='/Home/MonsterPage';" value="Back to Monster Page" />
 <input type="button" class="myButton" onclick="location.href='/Home/Index';" value="Back to Main Page" />

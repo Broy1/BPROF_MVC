@@ -1,43 +1,45 @@
 ﻿@model IEnumerable<Models.Monster>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Bounty)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Race)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Threat)
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            @if (item.Killedby == null)
-            {
+    <div class="table2">
+        <table class="table">
+            <thead>
                 <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Name)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Bounty)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Race)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Threat)
-                    </td>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Name)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Bounty)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Race)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Threat)
+                    </th>
                 </tr>
-            }
-        }
-    </tbody>
-</table>
-<input type="button" class="myButton" onclick="location.href='/Home/Index';" value="Back to Main Page" />
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    @if (item.Killedby == null)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Bounty)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Race)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Threat)
+                            </td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+    <input type="button" class="myButton" onclick="location.href='/Home/Index';" value="Back to Main Page" />
