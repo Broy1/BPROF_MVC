@@ -242,32 +242,13 @@ namespace ff_WDatabse.Controllers
             WitcherLogic.Update(witcher.WitcherID, witcher);
             return RedirectToAction(nameof(ListAllWitchers));
         }
-
-        public IActionResult MonsterSlain(string id)
+        public IActionResult DeleteWitcher(string id)
         {
-            return View(nameof(MonsterSlain),id);
-        }
-        [HttpPost]
-        public IActionResult MonsterSlain(Monster monster)
-        {
-
-            monster.MonsterID = Guid.NewGuid().ToString();
-            MonsterLogic.Add(monster);
+            WitcherLogic.Delete(WitcherLogic.Read(id));
             return RedirectToAction(nameof(ListAllWitchers));
         }
 
-        public IActionResult AddNewFriend(string id)
-        {
-            return View(nameof(AddNewFriend),id);
-        }
-        [HttpPost]
-        public IActionResult AddNewFriend(Human human)
-        {
-
-            human.HumandID = Guid.NewGuid().ToString();
-            HumanLogic.Add(human);
-            return RedirectToAction(nameof(ListAllWitchers));
-        }
+        //----//
         public IActionResult Contracts(WDatabaseContext context)
         {
             return View(context.Monsters);
