@@ -1,57 +1,47 @@
 ﻿@model IEnumerable<Models.Human>
 
-<!DOCTYPE html>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Listing Humans</title>
-</head>
-<body>
-    <table class="table">
-        <thead>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nationality)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Job)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Wage)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
             <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.Name)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Nationality)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Job)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Wage)
-                </th>
-                <th></th>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nationality)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Job)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Wage)
+                </td>
+                <td>
+                    <input type="button" class="myButton" onclick="location.href='/Home/UpdateHuman?id=@item.HumandID';" value="Update Human" />
+                    <input type="button" class="myButton" onclick="location.href = '/Home/DeleteHuman?id=@item.HumandID';" value="Yeet this Human" />
+                </td>
             </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Name)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Nationality)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Job)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Wage)
-                    </td>
-                    <td>
-                        <input type="button" class="" onclick="location.href='/Home/UpdateHuman?id=@item.HumandID';" value="Update Human" />
-                        <input type="button" class="" onclick="location.href = '/Home/DeleteHuman?id=@item.HumandID';" value="Yeet this Human" />
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
-    <input type="button" class="" onclick="location.href='/Home/HumanPage';" value="Back to Human Page" />
-    <input type="button" class="" onclick="location.href='/Home/Index';" value="Back to Main Page" />
-
-</body>
-</html>
+        }
+    </tbody>
+</table>
+    <input type="button" class="myButton" onclick="location.href='/Home/HumanPage';" value="Back to Human Page" />
+    <input type="button" class="myButton" onclick="location.href='/Home/Index';" value="Back to Main Page" />

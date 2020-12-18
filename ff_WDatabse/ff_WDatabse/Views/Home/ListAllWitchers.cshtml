@@ -1,39 +1,36 @@
 ﻿@model IEnumerable<Models.Witcher>
-<!DOCTYPE html>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>View</title>
-</head>
-<body>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.Name)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Age)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.School)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.AvaragePay)
-                </th>
-                <th>
-                    Friend's Name
-                </th>
-                <th>
-                    Monsters Slain
-                </th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
+
+
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Age)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.School)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AvaragePay)
+            </th>
+            <th>
+                Friend's Name
+            </th>
+            <th>
+                Monsters Slain
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
             <tr>
                 <td>
                     @Html.DisplayFor(modelItem => item.Name)
@@ -58,16 +55,15 @@
                     }
                 </td>
                 <td>
-                    <input type="button" class="" onclick="location.href = '/Home/UpdateWitcher?id=@item.WitcherID';" value="Update Witcher" />
-                    <input type="button" class="" onclick="location.href = '/Home/DeleteWitcher?id=@item.WitcherID';" value="Delete Witcher" />
-                    <input type="button" class="" onclick="location.href = '/Home/AddNewFriend?id=@item.WitcherID';" value="Add New Friend" />
-                    <input type="button" class="" onclick="location.href = '/Home/MonsterSlain?id=@item.WitcherID';" value="Add Slain Monster" />
+                    <input type="button" class="myButton" onclick="location.href = '/Home/UpdateWitcher?id=@item.WitcherID';" value="Update Witcher" />
+                    <input type="button" class="myButton" onclick="location.href = '/Home/DeleteWitcher?id=@item.WitcherID';" value="Delete Witcher" />
+                    <input type="button" class="myButton" onclick="location.href = '/Home/AddNewFriend?id=@item.WitcherID';" value="Add New Friend" />
+                    <input type="button" class="myButton" onclick="location.href = '/Home/MonsterSlain?id=@item.WitcherID';" value="Add Slain Monster" />
                 </td>
             </tr>
-            }
-        </tbody>
-    </table>
-    <input type="button" class="" onclick="location.href='/Home/WitcherPage';" value="Back to Witcher Page" />
-    <input type="button" class="" onclick="location.href='/Home/Index';" value="Back to Main Page" />
-</body>
-</html>
+        }
+    </tbody>
+</table>
+<input type="button" class="myButton" onclick="location.href='/Home/WitcherPage';" value="Back to Witcher Page" />
+<input type="button" class="myButton" onclick="location.href='/Home/Index';" value="Back to Main Page" />
+

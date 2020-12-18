@@ -272,5 +272,10 @@ namespace ff_WDatabse.Controllers
         {
             return View(context.Monsters);
         }
+
+        public IActionResult Stats()
+        {
+            return View();
+        }
     }
 }

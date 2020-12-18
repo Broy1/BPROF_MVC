@@ -1,55 +1,43 @@
 ﻿@model IEnumerable<Models.Monster>
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Active Contracts </title>
-</head>
-<body>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.Name)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Bounty)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Race)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Threat)
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Bounty)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Race)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Threat)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
             @if (item.Killedby == null)
             {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Bounty)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Race)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Threat)
-                </td>
-            </tr>
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Bounty)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Race)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Threat)
+                    </td>
+                </tr>
             }
-            }
-        </tbody>
-    </table>
-    <input type="button" class="" onclick="location.href='/Home/MonsterPage';" value="Back to Monster Page" />
-    <input type="button" class="" onclick="location.href='/Home/Index';" value="Back to Main Page" />
-
-</body>
-</html>
+        }
+    </tbody>
+</table>
+<input type="button" class="myButton" onclick="location.href='/Home/Index';" value="Back to Main Page" />

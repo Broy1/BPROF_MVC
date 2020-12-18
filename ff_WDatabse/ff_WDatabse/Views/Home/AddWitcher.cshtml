@@ -1,26 +1,16 @@
-﻿<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Add New Monster</title>
-</head>
-<body>
-    <form action="/Home/AddWitcher" method="post">
-        Name: <input type="text" name="Name" value="" /> <br>
-        Age: <input type="number" name="Age" value="" /> <br>
-        <label for="School">School:</label>
-        <select id="School" name="School">
-            <option value="School of the Wolf">School of the Wolf</option>
-            <option value="School of the Cat">School of the Cat</option>
-            <option value="School of the Bear">School of the Bear</option>
-            <option value="School of the Griffin">School of the Griffin</option>
-            <option value="School of the Viper">School of the Viper</option>
-        </select><br>
-        Avarage Pay: <input type="number" name="AvaragePay" value="" /> <br>
-        <input type="submit" name="" value="Add" /> <br>
-    </form>
-    <input type="button" class="" onclick="location.href='/Home/WitcherPage';" value="Back to Witcher Page" />
-
-</body>
-</html>
+﻿
+<form action="/Home/AddWitcher" method="post">
+    Name: <input type="text" name="Name" value="" /> <br>
+    Age: <input type="number" name="Age" value="" /> <br>
+    <label for="School">School:</label>
+    <select id="School" name="School">
+        <option value="School of the Wolf">School of the Wolf</option>
+        <option value="School of the Cat">School of the Cat</option>
+        <option value="School of the Bear">School of the Bear</option>
+        <option value="School of the Griffin">School of the Griffin</option>
+        <option value="School of the Viper">School of the Viper</option>
+    </select><br>
+    Avarage Pay: <input type="number" name="AvaragePay" value="" /> <br>
+    <input type="submit" name="" value="Add" /> <br>
+</form>
+<input type="button" class="myButton" onclick="location.href='/Home/WitcherPage';" value="Back to Witcher Page" />

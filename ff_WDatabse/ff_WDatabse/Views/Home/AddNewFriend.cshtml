@@ -1,17 +1,9 @@
 ﻿@model string
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Add New Friend </title>
-</head>
-<body>
-    <form action="/Home/AddNewFriend" method="post">
-        <input type="hidden" name="WitcherID" value="@Model" />
-        
-        <input type="submit" name="" value="Add" /> <br>
-    </form>
-    <input type="button" class="" onclick="location.href='/Home/WitcherPage';" value="Back to Witcher Page" />
 
-</body>
-</html>
+<form action="/Home/AddNewFriend" method="post">
+    <input type="hidden" name="WitcherID" value="@Model" />
+
+    <input type="submit" name="" value="Add" /> <br>
+</form>
+<input type="button" class="myButton" onclick="location.href='/Home/WitcherPage';" value="Back to Witcher Page" />
