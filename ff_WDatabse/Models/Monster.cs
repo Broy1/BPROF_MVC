@@ -26,5 +26,24 @@ namespace Models
 
         [Range(0, 10000)]
         public int Bounty { get; set; }
+
+        public override bool Equals(object obj)
+        {
+            if (obj is Monster)
+            {
+                Monster m = obj as Monster;
+                bool b1 = (this.Bounty == m.Bounty && this.Killedby == m.Killedby && this.MonsterID == m.MonsterID && this.Name == m.Name &&
+                    this.Race == m.Race && this.Threat == m.Threat && this.WitcherID == m.WitcherID);
+                return b1;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public override int GetHashCode()
+        {
+            return 0;
+        }
     }
 }

@@ -24,5 +24,24 @@ namespace Models
 
         [Range(0, 10000)]
         public int Wage { get; set; }
+
+        public override bool Equals(object obj)
+        {
+            if (obj is Human)
+            {
+                Human h = obj as Human;
+                bool b1 = (this.Friends == h.Friends && this.HumandID == h.HumandID && this.Job == h.Job && this.Name == h.Name && this.Nationality
+                    == h.Nationality && this.Wage == h.Wage && this.WitcherID == h.WitcherID);
+                return b1;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public override int GetHashCode()
+        {
+            return 0;
+        }
     }
 }

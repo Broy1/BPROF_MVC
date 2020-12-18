@@ -10,5 +10,6 @@ namespace Models
         public string AvgHuntedBounty { get; set; } // levadászott szörnyek bounty átlaga
         public int HasRedenianFriend { get; set; } // hány db witcher barátja redenian
 
+
     }
 }

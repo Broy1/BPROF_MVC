@@ -19,6 +19,7 @@ namespace Logic
             this.witcherrepo = witcherrepo;
         }
 
+
         public string AvgHuntedBounty()
         {
             var avgbounty = (from x in witcherrepo.GetAll().ToList()
@@ -41,7 +42,7 @@ namespace Logic
                          {
                              Name = g.Key,
                              Threat = g.SelectMany(y => y.Monsters_slain).Distinct().Average(y => y.Threat)
-                         }).OrderBy(l => l.Threat).FirstOrDefault();
+                         }).OrderBy(l => l.Threat).LastOrDefault();
             return bestschool.Name;
         }
 

@@ -26,8 +26,23 @@ namespace Models
         public string FriendID { get; set; }
         public virtual ICollection<Monster> Monsters_slain { get; set; }
 
-
-
-
+        public override bool Equals(object obj)
+        {
+            if (obj is Witcher)
+            {
+                Witcher w = obj as Witcher;
+                bool b1 = (this.Age == w.Age && this.AvaragePay == w.AvaragePay && this.School == w.School
+                    && this.Name == w.Name && this.Monsters_slain == w.Monsters_slain && this.Friend == w.Friend && this.FriendID == w.FriendID);
+                return b1;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public override int GetHashCode()
+        {
+            return 0;
+        }
     }
 }
