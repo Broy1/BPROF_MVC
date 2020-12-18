@@ -16,12 +16,13 @@ namespace ff_WDatabse.Controllers
         WitcherLogic WitcherLogic;
         HumanLogic HumanLogic;
         MonsterLogic MonsterLogic;
-
-        public HomeController(WitcherLogic WitcherLogic, HumanLogic HumanLogic,MonsterLogic MonsterLogic)
+        StatLogic StatLogic;
+        public HomeController(WitcherLogic WitcherLogic, HumanLogic HumanLogic,MonsterLogic MonsterLogic, StatLogic StatLogic)
         {
             this.WitcherLogic = WitcherLogic;
             this.HumanLogic = HumanLogic;
             this.MonsterLogic = MonsterLogic;
+            this.StatLogic = StatLogic;
         }
 
         public IActionResult Index()
@@ -45,37 +46,6 @@ namespace ff_WDatabse.Controllers
             m2.MonsterID = Guid.NewGuid().ToString();
             MonsterLogic.Add(m2);
 
-            Witcher w2 = new Witcher() { Name = "Vesemir", Age = 120, AvaragePay = 450, School = "School of the Wolf" };
-            w2.WitcherID = Guid.NewGuid().ToString();
-            WitcherLogic.Add(w2);
-            Witcher w3 = new Witcher() { Name = "Lambert", Age = 40, AvaragePay = 423, School = "School of the Wolf" };
-            w3.WitcherID = Guid.NewGuid().ToString();
-            WitcherLogic.Add(w3);
-            Witcher w4 = new Witcher() { Name = "Eskel", Age = 43, AvaragePay = 550, School = "School of the Wolf" };
-            w4.WitcherID = Guid.NewGuid().ToString();
-            WitcherLogic.Add(w4);
-            Witcher w5 = new Witcher() { Name = "Raven", Age = 38, AvaragePay = 376, School = "School of the Griffin" };
-            w5.WitcherID = Guid.NewGuid().ToString();
-            WitcherLogic.Add(w5);
-            Witcher w6 = new Witcher() { Name = "Aiden", Age = 32, AvaragePay = 190, School = "School of the Cat" };
-            w6.WitcherID = Guid.NewGuid().ToString();
-            WitcherLogic.Add(w6);
-            Witcher w7 = new Witcher() { Name = "Gerd", Age = 45, AvaragePay = 334, School = "School of the Viper" };
-            w7.WitcherID = Guid.NewGuid().ToString();
-            WitcherLogic.Add(w7);
-            Witcher w8 = new Witcher() { Name = "Brehen", Age = 74, AvaragePay = 200, School = "School of the Cat" };
-            w8.WitcherID = Guid.NewGuid().ToString();
-            WitcherLogic.Add(w8);
-            Witcher w9 = new Witcher() { Name = "Kolgrim", Age = 63, AvaragePay = 110, School = "School of the Viper" };
-            w9.WitcherID = Guid.NewGuid().ToString();
-            WitcherLogic.Add(w9);
-            Witcher w10 = new Witcher() { Name = "Cedric", Age = 26, AvaragePay = 240, School = "School of the Cat" };
-            w10.WitcherID = Guid.NewGuid().ToString();
-            WitcherLogic.Add(w10);
-            Witcher w11 = new Witcher() { Name = "Henry", Age = 37, AvaragePay = 660, School = "School of the Wolf" };
-            w11.WitcherID = Guid.NewGuid().ToString();
-            WitcherLogic.Add(w11);
-
             Human h2 = new Human() { Name = "Zoltan Chivay", Nationality = "Mahakam", Job = "Officer", Wage = 200 };
             h2.HumandID = Guid.NewGuid().ToString();
             HumanLogic.Add(h2);
@@ -88,7 +58,7 @@ namespace ff_WDatabse.Controllers
             Human h5 = new Human() { Name = "Radovid V", Nationality = "Redenia", Job = "Emperor", Wage = 10000 };
             h5.HumandID = Guid.NewGuid().ToString();
             HumanLogic.Add(h5);
-            Human h6 = new Human() { Name = "Svorlag Barber",  Nationality = "Skellige", Job = "Barber", Wage = 10 };
+            Human h6 = new Human() { Name = "Svorlag Barber", Nationality = "Skellige", Job = "Barber", Wage = 10 };
             h6.HumandID = Guid.NewGuid().ToString();
             HumanLogic.Add(h6);
             Human h7 = new Human() { Name = "Anselm", Nationality = "Redenia", Job = "Merchant", Wage = 25 };
@@ -98,27 +68,57 @@ namespace ff_WDatabse.Controllers
             h8.HumandID = Guid.NewGuid().ToString();
             HumanLogic.Add(h8);
 
-            
+            Witcher w2 = new Witcher() { Name = "Vesemir", Age = 120, AvaragePay = 450, School = "School of the Wolf", FriendID = h2.HumandID };
+            w2.WitcherID = Guid.NewGuid().ToString();
+            WitcherLogic.Add(w2);
+            Witcher w3 = new Witcher() { Name = "Lambert", Age = 40, AvaragePay = 423, School = "School of the Wolf", FriendID = h2.HumandID};
+            w3.WitcherID = Guid.NewGuid().ToString();
+            WitcherLogic.Add(w3);
+            Witcher w4 = new Witcher() { Name = "Eskel", Age = 43, AvaragePay = 550, School = "School of the Wolf", FriendID = h1.HumandID};
+            w4.WitcherID = Guid.NewGuid().ToString();
+            WitcherLogic.Add(w4);
+            Witcher w5 = new Witcher() { Name = "Raven", Age = 38, AvaragePay = 376, School = "School of the Griffin", FriendID = h7.HumandID};
+            w5.WitcherID = Guid.NewGuid().ToString();
+            WitcherLogic.Add(w5);
+            Witcher w6 = new Witcher() { Name = "Aiden", Age = 32, AvaragePay = 190, School = "School of the Cat", FriendID = h3.HumandID};
+            w6.WitcherID = Guid.NewGuid().ToString();
+            WitcherLogic.Add(w6);
+            Witcher w7 = new Witcher() { Name = "Gerd", Age = 45, AvaragePay = 334, School = "School of the Viper", FriendID = h4.HumandID};
+            w7.WitcherID = Guid.NewGuid().ToString();
+            WitcherLogic.Add(w7);
+            Witcher w8 = new Witcher() { Name = "Brehen", Age = 74, AvaragePay = 200, School = "School of the Cat", FriendID = h8.HumandID};
+            w8.WitcherID = Guid.NewGuid().ToString();
+            WitcherLogic.Add(w8);
+            Witcher w9 = new Witcher() { Name = "Kolgrim", Age = 63, AvaragePay = 110, School = "School of the Viper", FriendID = h4.HumandID};
+            w9.WitcherID = Guid.NewGuid().ToString();
+            WitcherLogic.Add(w9);
+            Witcher w10 = new Witcher() { Name = "Cedric", Age = 26, AvaragePay = 240, School = "School of the Cat", FriendID = h3.HumandID};
+            w10.WitcherID = Guid.NewGuid().ToString();
+            WitcherLogic.Add(w10);
+            Witcher w11 = new Witcher() { Name = "Henry", Age = 37, AvaragePay = 660, School = "School of the Wolf", FriendID = h6.HumandID};
+            w11.WitcherID = Guid.NewGuid().ToString();
+            WitcherLogic.Add(w11);
 
-            Monster m3 = new Monster() { Name = "Botchling", Killedby = null, Race = "Cursed One", Threat = 2, Bounty = 230 };
+
+            Monster m3 = new Monster() { Name = "Botchling", WitcherID = w5.WitcherID, Race = "Cursed One", Threat = 2, Bounty = 230 };
             m3.MonsterID = Guid.NewGuid().ToString();
             MonsterLogic.Add(m3);
-            Monster m4 = new Monster() { Name = "Gargoyle", Killedby = null, Race = "Elementa", Threat = 5, Bounty = 420 };
+            Monster m4 = new Monster() { Name = "Gargoyle", WitcherID = null, Race = "Elementa", Threat = 5, Bounty = 420 };
             m4.MonsterID = Guid.NewGuid().ToString();
             MonsterLogic.Add(m4);
-            Monster m5 = new Monster() { Name = "Leshen", Killedby = null, Race = "Relict", Threat = 6, Bounty = 450 };
+            Monster m5 = new Monster() { Name = "Leshen", WitcherID = w6.WitcherID, Race = "Relict", Threat = 6, Bounty = 450 };
             m5.MonsterID = Guid.NewGuid().ToString();
             MonsterLogic.Add(m5);
-            Monster m6 = new Monster() { Name = "Nekker", Killedby = null, Race = "Ogroid", Threat = 1, Bounty = 120 };
+            Monster m6 = new Monster() { Name = "Nekker", WitcherID = null, Race = "Ogroid", Threat = 1, Bounty = 120 };
             m6.MonsterID = Guid.NewGuid().ToString();
             MonsterLogic.Add(m6);
-            Monster m7 = new Monster() { Name = "Godling", Killedby = null, Race = "Relict", Threat = 0, Bounty = 0 };
+            Monster m7 = new Monster() { Name = "Godling", WitcherID = w3.WitcherID, Race = "Relict", Threat = 0, Bounty = 0 };
             m7.MonsterID = Guid.NewGuid().ToString();
             MonsterLogic.Add(m7);
-            Monster m8 = new Monster() { Name = "Higher Vampire", Killedby = null, Race = "Vampire", Threat = 8, Bounty = 600 };
+            Monster m8 = new Monster() { Name = "Higher Vampire", WitcherID = w2.WitcherID, Race = "Vampire", Threat = 8, Bounty = 600 };
             m8.MonsterID = Guid.NewGuid().ToString();
             MonsterLogic.Add(m8);
-            Monster m9 = new Monster() { Name = "Water Hag", Killedby = null, Race = "Necrophage", Threat = 4, Bounty = 350 };
+            Monster m9 = new Monster() { Name = "Water Hag", WitcherID = w9.WitcherID, Race = "Necrophage", Threat = 4, Bounty = 350 };
             m9.MonsterID = Guid.NewGuid().ToString();
             MonsterLogic.Add(m9);
 
@@ -273,9 +273,19 @@ namespace ff_WDatabse.Controllers
             return View(context.Monsters);
         }
 
+        // -------------------------- stats
+
+
         public IActionResult Stats()
         {
-            return View();
+            StatModel statModel = new Models.StatModel();
+
+            statModel.AvgHuntedBounty = StatLogic.AvgHuntedBounty();
+            statModel.SchoolStats = StatLogic.SchoolStats();
+            ;
+            statModel.HasRedenianFriend = StatLogic.HasRedenianFriend();
+            ;
+            return View(statModel);
         }
     }
 }

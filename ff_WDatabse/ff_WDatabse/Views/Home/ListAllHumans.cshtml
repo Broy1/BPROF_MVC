@@ -22,24 +22,24 @@
     <tbody>
         @foreach (var item in Model)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Nationality)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Job)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Wage)
-                </td>
-                <td>
-                    <input type="button" class="myButton" onclick="location.href='/Home/UpdateHuman?id=@item.HumandID';" value="Update Human" />
-                    <input type="button" class="myButton" onclick="location.href = '/Home/DeleteHuman?id=@item.HumandID';" value="Yeet this Human" />
-                </td>
-            </tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nationality)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Job)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Wage)
+            </td>
+            <td>
+                <input type="button" class="myButton" onclick="location.href='/Home/UpdateHuman?id=@item.HumandID';" value="Update Human" />
+                <input type="button" class="myButton" onclick="location.href = '/Home/DeleteHuman?id=@item.HumandID';" value="Yeet this Human" />
+            </td>
+        </tr>
         }
     </tbody>
 </table>

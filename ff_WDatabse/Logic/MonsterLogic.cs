@@ -11,7 +11,6 @@ namespace Logic
     public class MonsterLogic
     {
         IRepository<Monster> MonsterRepo;
-        IRepository<Witcher> WitcherRepo;
 
         public MonsterLogic(IRepository<Monster> MonsterRepo)
         {

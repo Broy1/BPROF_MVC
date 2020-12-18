@@ -17,6 +17,7 @@ namespace Models
 
         [NotMapped]
         public virtual ICollection<Witcher> Friends { get; set; }
+        public string WitcherID { get; set; }
 
         [StringLength(100)]
         public string Job { get; set; }

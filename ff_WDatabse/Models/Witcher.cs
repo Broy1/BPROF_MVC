@@ -15,6 +15,7 @@ namespace Models
 
         [Range(0, 200)]
         public int Age { get; set; }
+
         [StringLength(100)]
         public string School { get; set; }
         [Range(0, 2000)]
@@ -24,5 +25,9 @@ namespace Models
         public virtual Human Friend { get; set; }
         public string FriendID { get; set; }
         public virtual ICollection<Monster> Monsters_slain { get; set; }
+
+
+
+
     }
 }

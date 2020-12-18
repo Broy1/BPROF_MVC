@@ -24,9 +24,11 @@ namespace ff_WDatabse
             services.AddTransient<WitcherLogic, WitcherLogic>();
             services.AddTransient<HumanLogic, HumanLogic>();
             services.AddTransient<MonsterLogic, MonsterLogic>();
+            services.AddTransient<StatLogic, StatLogic>();
             services.AddTransient<IRepository<Witcher>, WitcherRepo>();
             services.AddTransient<IRepository<Human>, HumanRepo>();
             services.AddTransient<IRepository<Monster>, MonsterRepo>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
