@@ -8,6 +8,7 @@ namespace Models
     public class Human
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public string HumandID { get; set; }
         [StringLength(100)]
         public string Name { get; set; }

@@ -9,6 +9,7 @@ namespace Models
     public class Witcher
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public string WitcherID { get; set; }
         [StringLength(100)]
         public string Name { get; set; }

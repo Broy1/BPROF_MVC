@@ -10,6 +10,7 @@ namespace Models
     public class Monster
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public string MonsterID { get; set; }
         [StringLength(100)]
         public string Name { get; set; }

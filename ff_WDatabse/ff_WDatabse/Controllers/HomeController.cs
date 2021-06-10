@@ -263,9 +263,7 @@ namespace ff_WDatabse.Controllers
 
             statModel.AvgHuntedBounty = StatLogic.AvgHuntedBounty();
             statModel.SchoolStats = StatLogic.SchoolStats();
-            ;
             statModel.HasRedenianFriend = StatLogic.HasRedenianFriend();
-            ;
             return View(statModel);
         }
     }
