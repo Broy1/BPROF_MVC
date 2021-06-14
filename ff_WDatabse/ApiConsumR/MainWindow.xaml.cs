@@ -24,10 +24,17 @@ namespace ApiConsumR
         public MainWindow()
         {
             InitializeComponent();
-            RestService restservice = new RestService("https://localhost:44360", "/Witcher");
+            GetPlayListNames();
+        }
 
-            List<string> witchernames = 
-                restservice.Get<Witcher>().Result.Select(t => t.Name).ToList();
+        public async Task GetPlayListNames()
+        {
+            RestService restservice = new RestService("https://localhost:44360", "/Witcher");
+            IEnumerable<Witcher> witchernames =
+                await restservice.Get<Witcher>();
+            
+            cbox.ItemsSource = witchernames.Select(t => t.Name);
+            cbox.SelectedIndex = 0;
         }
     }
 }
