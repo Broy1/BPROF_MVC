@@ -23,6 +23,18 @@ namespace ApiEndpoint.Controllers
             this.mlogic = mlogic;
         }
 
+        [HttpPost]
+        public void AddMonsterToWitcher([FromBody] MonsterToWitcher item)
+        {
+            //logicból kéne ide
+        }
+
+        [HttpDelete]
+        public void RemoveMonsterFromWitcher([FromBody] MonsterToWitcher item)
+        {
+            //logicból kéne ide
+        }
+
         [HttpGet] //localhost:2222/Edit
         public void FillDb()
         {

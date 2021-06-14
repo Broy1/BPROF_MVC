@@ -15,7 +15,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Logic", "Logic\Logic.csproj
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test", "Test\Test.csproj", "{146E2EC3-CBC1-4383-A417-4B919F2337A1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiEndpoint", "ApiEndpoint\ApiEndpoint.csproj", "{6778E7D5-2C7C-4B9E-80BC-A36D4C381758}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiEndpoint", "ApiEndpoint\ApiEndpoint.csproj", "{6778E7D5-2C7C-4B9E-80BC-A36D4C381758}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiConsumer", "ApiConsumer\ApiConsumer.csproj", "{B159036D-4DDD-4BD9-AC1D-0F0E725E9667}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{6778E7D5-2C7C-4B9E-80BC-A36D4C381758}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6778E7D5-2C7C-4B9E-80BC-A36D4C381758}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6778E7D5-2C7C-4B9E-80BC-A36D4C381758}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B159036D-4DDD-4BD9-AC1D-0F0E725E9667}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B159036D-4DDD-4BD9-AC1D-0F0E725E9667}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B159036D-4DDD-4BD9-AC1D-0F0E725E9667}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B159036D-4DDD-4BD9-AC1D-0F0E725E9667}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

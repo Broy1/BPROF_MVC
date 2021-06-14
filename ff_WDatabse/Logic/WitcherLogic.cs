@@ -49,6 +49,15 @@ namespace Logic
         {
             this.WitcherRepo.Update(oldid, newitem);
         }
+        public void AddMonsterSlain(Monster item, string wid)
+        {
+            // hmm repobol kéne ide
+        }
+
+        public void DeleteMonsterSlain(string mid, string wid)
+        {
+            // hmm
+        }
 
         public void Init()
         {

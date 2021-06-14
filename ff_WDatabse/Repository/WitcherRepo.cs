@@ -63,5 +63,18 @@ namespace Repository
             old.WitcherID = newitem.WitcherID;
             this.context.SaveChanges();
         }
+
+        public void AddMonsterSlain(Monster item, string wid)
+        {
+            Read(wid).Monsters_slain.Add(item);
+            this.context.SaveChanges();
+        }
+
+        public void RemoveMonsterSlain(string mid, string wid)
+        {
+            var m = Read(wid).Monsters_slain.FirstOrDefault(m => m.MonsterID == mid);
+            Read(wid).Monsters_slain.Remove(m);
+            this.context.SaveChanges();
+        }
     }
 }
