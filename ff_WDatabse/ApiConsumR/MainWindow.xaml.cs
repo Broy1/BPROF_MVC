@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,7 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace ApiConsumer
+namespace ApiConsumR
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -25,7 +26,8 @@ namespace ApiConsumer
             InitializeComponent();
             RestService restservice = new RestService("https://localhost:44360", "/Witcher");
 
-            List<string> witchernames = restservice.Get<Witcher>
+            List<string> witchernames = 
+                restservice.Get<Witcher>().Result.Select(t => t.Name).ToList();
         }
     }
 }
