@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
+using System.Text.Json.Serialization;
 
 namespace Models
 {
@@ -19,12 +20,13 @@ namespace Models
 
         [StringLength(100)]
         public string School { get; set; }
-        [Range(0, 2000)]
+        [Range(0, 100000)]
         public int AvaragePay { get; set; }
 
         [NotMapped]
         public virtual Human Friend { get; set; }
         public string FriendID { get; set; }
+        [JsonIgnore]
         public virtual ICollection<Monster> Monsters_slain { get; set; }
 
         public override bool Equals(object obj)
