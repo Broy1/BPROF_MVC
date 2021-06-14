@@ -49,31 +49,33 @@ namespace Logic
         {
             this.WitcherRepo.Update(oldid, newitem);
         }
-        public void AddMonsterSlain(Monster item, string wid)
+        public void AddMonsterSlain(Monster monster, string wid)
         {
-            // hmm repobol kéne ide
+            Read(wid).Monsters_slain.Add(monster);
+            WitcherRepo.Save();
         }
 
-        public void DeleteMonsterSlain(string mid, string wid)
+        public void DeleteMonsterSlain(Monster monster, string wid)
         {
-            // hmm
+            Read(wid).Monsters_slain.Remove(monster);
+            WitcherRepo.Save();
         }
 
         public void Init()
         {
-            this.WitcherRepo.Add(new Witcher() { Name = "Geralt", Age = 55, AvaragePay = 765, School = "School of the Wolf" });
-            this.WitcherRepo.Add(new Witcher() { Name = "Vesemir", Age = 120, AvaragePay = 450, School = "School of the Wolf" });
-            this.WitcherRepo.Add(new Witcher() { Name = "Lambert", Age = 40, AvaragePay = 423, School = "School of the Wolf" });
-            this.WitcherRepo.Add(new Witcher() { Name = "Eskel", Age = 43, AvaragePay = 550, School = "School of the Wolf" });
-            this.WitcherRepo.Add(new Witcher() { Name = "Raven", Age = 38, AvaragePay = 376, School = "School of the Griffin" });
-            this.WitcherRepo.Add(new Witcher() { Name = "Aiden", Age = 32, AvaragePay = 190, School = "School of the Cat" });
-            this.WitcherRepo.Add(new Witcher() { Name = "Gerd", Age = 45, AvaragePay = 334, School = "School of the Viper" });
-            this.WitcherRepo.Add(new Witcher() { Name = "Brehen", Age = 74, AvaragePay = 200, School = "School of the Cat" });
-            this.WitcherRepo.Add(new Witcher() { Name = "Kolgrim", Age = 63, AvaragePay = 110, School = "School of the Viper" });
-            this.WitcherRepo.Add(new Witcher() { Name = "Cedric", Age = 26, AvaragePay = 240, School = "School of the Cat" });
-            this.WitcherRepo.Add(new Witcher() { Name = "Henry", Age = 37, AvaragePay = 660, School = "School of the Wolf" });
+            //this.WitcherRepo.Add(new Witcher() { Name = "Geralt", Age = 55, AvaragePay = 765, School = "School of the Wolf" });
+            //this.WitcherRepo.Add(new Witcher() { Name = "Vesemir", Age = 120, AvaragePay = 450, School = "School of the Wolf" });
+            //this.WitcherRepo.Add(new Witcher() { Name = "Lambert", Age = 40, AvaragePay = 423, School = "School of the Wolf" });
+            //this.WitcherRepo.Add(new Witcher() { Name = "Eskel", Age = 43, AvaragePay = 550, School = "School of the Wolf" });
+            //this.WitcherRepo.Add(new Witcher() { Name = "Raven", Age = 38, AvaragePay = 376, School = "School of the Griffin" });
+            //this.WitcherRepo.Add(new Witcher() { Name = "Aiden", Age = 32, AvaragePay = 190, School = "School of the Cat" });
+            //this.WitcherRepo.Add(new Witcher() { Name = "Gerd", Age = 45, AvaragePay = 334, School = "School of the Viper" });
+            //this.WitcherRepo.Add(new Witcher() { Name = "Brehen", Age = 74, AvaragePay = 200, School = "School of the Cat" });
+            //this.WitcherRepo.Add(new Witcher() { Name = "Kolgrim", Age = 63, AvaragePay = 110, School = "School of the Viper" });
+            //this.WitcherRepo.Add(new Witcher() { Name = "Cedric", Age = 26, AvaragePay = 240, School = "School of the Cat" });
+            //this.WitcherRepo.Add(new Witcher() { Name = "Henry", Age = 37, AvaragePay = 660, School = "School of the Wolf" });
 
-            WitcherRepo.Save();
+            //WitcherRepo.Save();
         }
     }
 }

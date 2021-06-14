@@ -7,7 +7,20 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <ComboBox x:Name="cbox" HorizontalAlignment="Center" Height="100" Margin="0,28,0,0" VerticalAlignment="Top" Width="715"/>
+        <ComboBox x:Name="cbox" HorizontalAlignment="Center" Height="100" Margin="0,28,0,0" VerticalAlignment="Top" Width="715">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <Label Content="{Binding Name}"/>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        <ListBox x:Name="lbox" ItemsSource="{Binding ElementName=cbox, Path=SelectedItem.Monsters_slain}" HorizontalAlignment="Center" Height="159" Margin="0,198,0,0" VerticalAlignment="Top" Width="716">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Label Content="{Binding Name}"/>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
 
     </Grid>
 </Window>

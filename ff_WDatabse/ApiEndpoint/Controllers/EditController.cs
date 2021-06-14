@@ -26,16 +26,16 @@ namespace ApiEndpoint.Controllers
         [HttpPost]
         public void AddMonsterToWitcher([FromBody] MonsterToWitcher item)
         {
-            //logicból kéne ide
+            wlogic.AddMonsterSlain(mlogic.Read(item.MonsterUid), item.WitcherUid);
         }
 
         [HttpDelete]
         public void RemoveMonsterFromWitcher([FromBody] MonsterToWitcher item)
         {
-            //logicból kéne ide
+            wlogic.DeleteMonsterSlain(mlogic.Read(item.MonsterUid), item.WitcherUid);
         }
 
-        [HttpGet] //localhost:2222/Edit
+        [HttpGet] //localhost:231/Edit
         public void FillDb()
         {
             Human h1 = new Human() { Name = "Dandelion", Nationality = "Redenia", Job = "Bard", Wage = 100 };
@@ -100,7 +100,7 @@ namespace ApiEndpoint.Controllers
             Witcher w10 = new Witcher() { Name = "Cedric", Age = 26, AvaragePay = 240, School = "School of the Cat", FriendID = h3.HumandID };
 
             wlogic.Add(w10);
-            Witcher w11 = new Witcher() { Name = "Henry", Age = 37, AvaragePay = 660, School = "School of the Wolf", FriendID = h6.HumandID };
+            Witcher w11 = new Witcher() { Name = "Henry", Age = 37, AvaragePay = 660, School = "School of the Wolf", FriendID = h6.HumandID, Monsters_slain = new List<Monster>() };
 
             wlogic.Add(w11);
 
@@ -126,6 +126,29 @@ namespace ApiEndpoint.Controllers
             Monster m9 = new Monster() { Name = "Water Hag", WitcherID = w9.WitcherID, Race = "Necrophage", Threat = 4, Bounty = 350 };
 
             mlogic.Add(m9);
+
+            AddMonsterToWitcher(new MonsterToWitcher { MonsterUid =m5.MonsterID, WitcherUid =w11.WitcherID});
+
+            //w1.Monsters_slain.Add(m1);
+            //w2.Monsters_slain.Add(m8);
+            //w2.Monsters_slain.Add(m3);
+            //w2.Monsters_slain.Add(m5);
+            //w3.Monsters_slain.Add(m5);
+            //w4.Monsters_slain.Add(m3);
+            //w4.Monsters_slain.Add(m4);
+            //w5.Monsters_slain.Add(m4);
+            //w5.Monsters_slain.Add(m6);
+            //w5.Monsters_slain.Add(m9);
+            //w6.Monsters_slain.Add(m6);
+            //w7.Monsters_slain.Add(m5);
+            //w7.Monsters_slain.Add(m5);
+            //w8.Monsters_slain.Add(m6);
+            //w8.Monsters_slain.Add(m5);
+            //w8.Monsters_slain.Add(m3);
+            //w9.Monsters_slain.Add(m7);
+            //w10.Monsters_slain.Add(m2);
+            //w10.Monsters_slain.Add(m8);
+            //w11.Monsters_slain.Add(m9);
         }
     }
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
-
+using System.Text.Json.Serialization;
 
 namespace Models
 {
@@ -16,6 +16,7 @@ namespace Models
         public string Name { get; set; }
 
         [NotMapped]
+        [JsonIgnore]
         public virtual Witcher Killedby { get; set; }
         public string WitcherID { get; set; }
 

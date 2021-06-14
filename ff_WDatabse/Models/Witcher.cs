@@ -26,7 +26,7 @@ namespace Models
         [NotMapped]
         public virtual Human Friend { get; set; }
         public string FriendID { get; set; }
-        [JsonIgnore]
+        
         public virtual ICollection<Monster> Monsters_slain { get; set; }
 
         public override bool Equals(object obj)
