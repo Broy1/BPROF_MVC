@@ -1,3 +1,4 @@
+using Logic;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -5,6 +6,8 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Models;
+using Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +21,12 @@ namespace ApiEndpoint
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddTransient<WitcherLogic, WitcherLogic>();
+            services.AddTransient<HumanLogic, HumanLogic>();
+            services.AddTransient<MonsterLogic, MonsterLogic>();
+            services.AddTransient<IRepository<Witcher>, WitcherRepo>();
+            services.AddTransient<IRepository<Monster>, MonsterRepo>();
+            services.AddTransient<IRepository<Human>, HumanRepo>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
