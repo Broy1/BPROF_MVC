@@ -8,7 +8,9 @@ using System.Threading.Tasks;
 
 namespace ApiEndpoint.Controllers
 {
-    public class HumanController
+    [ApiController]
+    [Route("{controller}")]
+    public class HumanController : ControllerBase
     {
         HumanLogic logic;
         public HumanController(HumanLogic logic)
@@ -28,7 +30,7 @@ namespace ApiEndpoint.Controllers
             return logic.Read(uid);
         }
 
-        [HttpGet("{uid}")]
+        [HttpGet]
         public IEnumerable<Human> GetAllHuman()
         {
             return logic.GetAll();

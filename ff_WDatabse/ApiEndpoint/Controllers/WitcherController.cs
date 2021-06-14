@@ -31,7 +31,7 @@ namespace ApiEndpoint.Controllers
             return logic.Read(uid);
         }
 
-        [HttpGet("{uid}")]
+        [HttpGet]
         public IEnumerable<Witcher> GetAllWitcher()
         {
             return logic.GetAll();

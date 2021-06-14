@@ -8,8 +8,11 @@ using System.Threading.Tasks;
 
 namespace ApiEndpoint.Controllers
 {
-    public class MonsterController
+    [ApiController]
+    [Route("{controller}")]
+    public class MonsterController : ControllerBase
     {
+
         MonsterLogic logic;
         public MonsterController(MonsterLogic logic)
         {
@@ -28,7 +31,7 @@ namespace ApiEndpoint.Controllers
             return logic.Read(uid);
         }
 
-        [HttpGet("{uid}")]
+        [HttpGet]
         public IEnumerable<Monster> GetAllMonster()
         {
             return logic.GetAll();
