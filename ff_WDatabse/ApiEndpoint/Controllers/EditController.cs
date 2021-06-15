@@ -1,4 +1,5 @@
 ﻿using Logic;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Models;
 using System;
@@ -29,6 +30,7 @@ namespace ApiEndpoint.Controllers
             wlogic.AddMonsterSlain(mlogic.Read(item.MonsterUid), item.WitcherUid);
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpDelete]
         public void RemoveMonsterFromWitcher([FromBody] MonsterToWitcher item)
         {

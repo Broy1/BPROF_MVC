@@ -38,10 +38,12 @@ namespace Logic
             var result = await _userManager.CreateAsync(user, model.Password);
             if (result.Succeeded)
             {
-                //await _userManager.AddToRoleAsync(user, "Admin");
+                await _userManager.AddToRoleAsync(user, "Customer");
             }
             return user.UserName;
         }
+
+        //admin szerepkörbe tevés
 
         public async Task<TokenViewModel> LoginUser(LoginViewModel model)
         {

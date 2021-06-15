@@ -1,7 +1,9 @@
 ﻿using Logic;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Models;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace ApiEndpoint.Controllers
@@ -16,6 +18,14 @@ namespace ApiEndpoint.Controllers
         {
             _authLogic = authLogic;
         }
+
+        [HttpGet]
+        public IEnumerable<IdentityUser> GetUsers()
+        {
+            return _authLogic.GetAllUser();
+        }
+
+        //patch adminá tevéshez
 
         [HttpPost]
         public async Task<ActionResult> InsertUser([FromBody] RegisterViewModel model)
