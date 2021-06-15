@@ -14,13 +14,22 @@
                 </DataTemplate>
             </ComboBox.ItemTemplate>
         </ComboBox>
-        <ListBox x:Name="lbox" ItemsSource="{Binding ElementName=cbox, Path=SelectedItem.Monsters_slain}" HorizontalAlignment="Center" Height="159" Margin="0,198,0,0" VerticalAlignment="Top" Width="716">
+        <ListBox x:Name="lbox" ItemsSource="{Binding ElementName=cbox, Path=SelectedItem.Monsters_slain}" HorizontalAlignment="Left" Height="205" Margin="42,157,0,0" VerticalAlignment="Top" Width="426">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Label Content="{Binding Name}"/>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
+        <StackPanel Margin="508,157,42,72">
+            <Label Content="Name"/>
+            <TextBox x:Name="tb_title"/>
+            <Label Content="MonsterID"/>
+            <TextBox x:Name="tb_monster"/>
+            <Label Content="Bounty"/>
+            <TextBox x:Name="tb_bounty"/>
+            <Button Content="Add" FontSize="20" Click="Button_Click"/>
+        </StackPanel>
 
     </Grid>
 </Window>

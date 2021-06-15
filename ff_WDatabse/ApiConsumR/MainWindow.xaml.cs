@@ -36,5 +36,20 @@ namespace ApiConsumR
             cbox.ItemsSource = witchernames;
             cbox.SelectedIndex = 0;
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Monster newmonster = new Monster()
+            {
+                Name = tb_title.Text,
+                MonsterID = tb_monster.Text,
+                Bounty = int.Parse(tb_bounty.Text),
+                WitcherID = (cbox.SelectedItem as Witcher).WitcherID
+            };
+
+            RestService restservice = new RestService("https://localhost:44360", "/Monster");
+            restservice.Post<Monster>(newmonster);
+            GetWitcherNames();
+        }
     }
 }

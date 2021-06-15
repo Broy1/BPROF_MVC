@@ -3,11 +3,12 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Models;
-
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 
 namespace Data
 {
-    public class WDatabaseContext : DbContext
+    public class WDatabaseContext : IdentityDbContext<IdentityUser>
     {
 
         public WDatabaseContext(DbContextOptions<WDatabaseContext> opt) : base(opt)
@@ -22,6 +23,8 @@ namespace Data
         protected override void OnModelCreating(ModelBuilder modelbuilder)
         {
             base.OnModelCreating(modelbuilder);
+
+            //todo alap admin fiók db seed
 
             modelbuilder.Entity<Monster>(entity =>
             {
@@ -54,7 +57,9 @@ namespace Data
             {
                 optionsBuilder.
                     UseLazyLoadingProxies().
-                    UseSqlServer(@"data source=(LocalDB)\MSSQLLocalDB;attachdbfilename=|DataDirectory|\WDb.mdf;integrated security=True;MultipleActiveResultSets=True");
+                    //UseSqlServer(@"data source=(LocalDB)\MSSQLLocalDB;attachdbfilename=|DataDirectory|\WDb.mdf;integrated security=True;MultipleActiveResultSets=True");
+                    UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=MonsterDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+
             }
         }
 
