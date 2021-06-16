@@ -17,9 +17,18 @@ namespace ApiConsumR
     /// </summary>
     public partial class PasswordWindow : Window
     {
+        public string UserName { get; set; }
+        public string Password { get; set; }
         public PasswordWindow()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            UserName = tb_username.Text;
+            Password = tb_pass.Password;
+            this.DialogResult = true;
         }
     }
 }

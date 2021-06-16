@@ -21,15 +21,36 @@ namespace ApiConsumR
     /// </summary>
     public partial class MainWindow : Window
     {
+        private string token;
         public MainWindow()
         {
             InitializeComponent();
-            GetWitcherNames();
+            Login();
+        }
+
+        public async Task Login()
+        {
+            PasswordWindow pw = new PasswordWindow();
+            if (pw.ShowDialog() == true)
+            {
+                RestService restservice = new RestService("https://localhost:44360", "/Auth");
+                TokenViewModel tvm = await restservice.Put<TokenViewModel, LoginViewModel>(new LoginViewModel()
+                {
+                    Username = pw.UserName,
+                    Password = pw.Password
+                });
+                token = tvm.Token;
+                GetWitcherNames();
+            }
+            else
+            {
+                this.Close();
+            }
         }
 
         public async Task GetWitcherNames()
         {
-            RestService restservice = new RestService("https://localhost:44360", "/Witcher");
+            RestService restservice = new RestService("https://localhost:44360", "/Witcher", token);
             IEnumerable<Witcher> witchernames =
                 await restservice.Get<Witcher>();
             
@@ -47,7 +68,7 @@ namespace ApiConsumR
                 WitcherID = (cbox.SelectedItem as Witcher).WitcherID
             };
 
-            RestService restservice = new RestService("https://localhost:44360", "/Monster");
+            RestService restservice = new RestService("https://localhost:44360", "/Monster", token);
             restservice.Post<Monster>(newmonster);
             GetWitcherNames();
         }
