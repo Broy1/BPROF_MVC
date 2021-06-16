@@ -51,12 +51,25 @@ namespace Data
                 SecurityStamp = string.Empty
             };
 
+            var appUser3 = new IdentityUser
+            {
+                Id = "b2174cf0–9412–4cfe-afbf-59f706d72cf6",
+                Email = "somebody3@nik.uni-obuda.hu",
+                NormalizedEmail = "somebody3@nik.uni-obuda.hu",
+                EmailConfirmed = true,
+                UserName = "broy99",
+                NormalizedUserName = "somebody3@nik.uni-obuda.hu",
+                SecurityStamp = string.Empty
+            };
+
             appUser.PasswordHash = new PasswordHasher<IdentityUser>().HashPassword(null, "Almafa123!");
             appUser2.PasswordHash = new PasswordHasher<IdentityUser>().HashPassword(null, "Almafa123!");
+            appUser3.PasswordHash = new PasswordHasher<IdentityUser>().HashPassword(null, "Almafa123!");
 
 
             modelbuilder.Entity<IdentityUser>().HasData(appUser);
             modelbuilder.Entity<IdentityUser>().HasData(appUser2);
+            modelbuilder.Entity<IdentityUser>().HasData(appUser3);
 
             modelbuilder.Entity<IdentityUserRole<string>>().HasData(new IdentityUserRole<string>
             {
@@ -68,6 +81,12 @@ namespace Data
             {
                 RoleId = "341743f0-dee2–42de-bbbb-59kmkkmk72cf6",
                 UserId = "p2174cf0–9412–4cfe-afbf-59f706d72cf6"
+            });
+
+            modelbuilder.Entity<IdentityUserRole<string>>().HasData(new IdentityUserRole<string>
+            {
+                RoleId = "341743f0-asd2–42de-afbf-59kmkkmk72cf6",
+                UserId = "b2174cf0–9412–4cfe-afbf-59f706d72cf6"
             });
 
             modelbuilder.Entity<Monster>(entity =>
@@ -102,8 +121,8 @@ namespace Data
                 optionsBuilder.
                     UseLazyLoadingProxies().
                     //UseSqlServer(@"data source=(LocalDB)\MSSQLLocalDB;attachdbfilename=|DataDirectory|\WDb.mdf;integrated security=True;MultipleActiveResultSets=True");
-                    UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=MonsterDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
-
+                    //UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=MonsterDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+                    UseSqlServer(@"Server=tcp:bogyaroland.database.windows.net,1433;Initial Catalog=witcherdatabase;Persist Security Info=False;User ID=broy99;Password=Sentoya32R;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
             }
         }
 

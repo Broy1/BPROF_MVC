@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 
 namespace ApiEndpoint.Controllers
 {
-    [Authorize]
     [ApiController]
     [Route("{controller}")]
     public class WitcherController : ControllerBase
