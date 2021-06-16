@@ -22,9 +22,17 @@ namespace ApiConsumR
     public partial class MainWindow : Window
     {
         private string token;
+        string userId;
         public MainWindow()
         {
             InitializeComponent();
+            Login();
+        }
+        public MainWindow(string uid, string token)
+        {
+            this.token = token;
+            InitializeComponent();
+            this.userId = uid;
             Login();
         }
 
@@ -33,7 +41,7 @@ namespace ApiConsumR
             PasswordWindow pw = new PasswordWindow();
             if (pw.ShowDialog() == true)
             {
-                RestService restservice = new RestService("https://localhost:44360", "/Auth");
+                RestService restservice = new RestService("https://witcherendpoint.azurewebsites.net/", "/Auth");
                 TokenViewModel tvm = await restservice.Put<TokenViewModel, LoginViewModel>(new LoginViewModel()
                 {
                     Username = pw.UserName,
@@ -50,11 +58,25 @@ namespace ApiConsumR
 
         public async Task GetWitcherNames()
         {
-            RestService restservice = new RestService("https://localhost:44360", "/Witcher", token);
+            RestService restservice = new RestService("https://witcherendpoint.azurewebsites.net/", "/Witcher", token);
             IEnumerable<Witcher> witchernames =
                 await restservice.Get<Witcher>();
             
             cbox.ItemsSource = witchernames;
+            cbox.SelectedIndex = 0;
+        }
+        public async Task GetWitcherNames(string userid)
+        {
+            cbox.ItemsSource = null;
+            RestService restservice = new RestService("https://witcherendpoint.azurewebsites.net/", "/Witcher", token);
+            Witcher witchernames = await restservice.Get<Witcher, string>(userid);
+
+            cbox.ItemsSource = witchernames.Monsters_slain;
+
+            restservice = new RestService("https://witcherendpoint.azurewebsites.net/", "/User", token);
+            witchernames = await restservice.Get<Witcher, string>(userid);
+
+            cbox.ItemsSource = witchernames.Monsters_slain;
             cbox.SelectedIndex = 0;
         }
 
@@ -68,9 +90,37 @@ namespace ApiConsumR
                 WitcherID = (cbox.SelectedItem as Witcher).WitcherID
             };
 
-            RestService restservice = new RestService("https://localhost:44360", "/Monster", token);
+            RestService restservice = new RestService("https://witcherendpoint.azurewebsites.net/", "/Monster", token);
             restservice.Post<Monster>(newmonster);
             GetWitcherNames();
+        }
+
+        private void Edit_Click(object sender, RoutedEventArgs e)
+        {
+            EditWitcher ew = new EditWitcher(token, cbox.SelectedItem as Witcher);
+            ew.Show();
+            this.Close();
+        }
+
+        private void List_monsters_Click(object sender, RoutedEventArgs e)
+        {
+            MonsterWindow mw = new MonsterWindow(cbox.SelectedItem as Witcher, token);
+            mw.Show();
+            this.Close();
+        }
+
+        private void Delete_Click(object sender, RoutedEventArgs e)
+        {
+            RestService restservice = new RestService("https://witcherendpoint.azurewebsites.net/", "/Witcher", token);
+            restservice.Delete<string>((cbox.SelectedItem as Witcher).WitcherID);
+            GetWitcherNames(userId);
+        }
+
+        private void AddWitcher_Click(object sender, RoutedEventArgs e)
+        {
+            AddWitcherWindow aw = new AddWitcherWindow(userId, token);
+            aw.Show();
+            this.Close();
         }
     }
 }
